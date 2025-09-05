@@ -1,0 +1,408 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+nav{
+    display: flex;
+    gap: 500px;
+    height: 100px;
+    overflow: hidden;
+    position: fixed;
+     cursor: pointer;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
+nav a h1{
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.5rem;
+}
+nav label{
+    padding-top: 30px;
+    padding-left: 50px;
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+select{
+    padding-top: 20px;
+    font-size: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+}
+
+.sidebar{
+    background-color: #E0E0E0;
+    width: 400px;
+    height: 100vh;
+    padding: 150px 130px;
+    text-align: left;
+    z-index: 2;
+    position: absolute;
+    left: -400px;
+    cursor: pointer;
+    position: absolute;
+}
+.sidebar i{
+    font-size: 2.5rem;
+    padding-left: 150px;
+    padding-top: 0px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.sidebar i:hover, .rightbar i{
+    color: white;
+}
+.sidebar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.sidebar ul li{
+    height: 50px;
+    width: 200px;
+    padding: 20px;
+    padding-left: 0px;
+    border-bottom: 2px solid black;
+}
+.sidebar ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+.sidebar.active {
+  left: 0;  
+  transition: left 0.3s ease;
+}
+#menu-toggle:checked ~ .sidebar {
+  left: 0;
+}
+
+.rightbar {
+  background-color: #F0F0F0;
+  width: 400px;
+  height: 100vh;
+  margin-left: 1337px;
+  padding: 100px 40px;
+  position: absolute;
+  top: 0;
+  right: -400px;
+  transition: right 0.3s ease;
+  z-index: 2;
+}
+.rightbar h3, .rightbar p{
+    color: black;
+    font-size: 1.2rem;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+.rightbar i{
+    font-size: 1.7rem;
+    color: black;
+    margin-bottom: 20px;
+}
+.rightbar i:hover{
+    color: white;
+}
+.rightbar.active{
+    right: 0;
+    transition: right 0.3s ease;
+}
+#cart-toggle:checked ~ .rightbar {
+  right: 0;
+}
+
+.container video{
+    height: 800px;
+    width: 1500px;
+    margin:30px 100px;
+}
+
+.container section{
+    display: flex;
+    gap: 600px;
+    margin: 30px 100px;
+}
+.container section h1{
+    font-family: "TASA Orbiter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 3rem;
+    margin-left: 20px;
+}
+.container section p{
+    margin-right: 30px;
+    font-size: 1.2rem;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    width: 500px;
+}
+
+.product{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 10px 100px;
+    column-gap: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.product .card1{
+    background-image: url(./images/img1.webp);
+    background-position: center;
+    background-size: contain;
+    height: 600px;
+    width: 480px;
+     -webkit-mask: none;
+    mask: none;
+    transition: mask 0.5s ease, -webkit-mask 0.5s ease;
+}
+.product .card2{
+    background-image: url(./images/img2.webp);
+    background-position: center;
+    background-size: contain;
+    height: 600px;
+    width: 480px;
+}
+.product .card3{
+    background-image: url(./images/img3.webp);
+    background-position: center;
+    background-size: contain;
+    height: 600px;
+    width: 480px;
+}
+.product .card1 button, .product .card2 button, .product .card3 button{
+    padding: 15px;
+    border: 1px solid;
+    margin: 30px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+}
+.product .card1::before, .product .card2::before, .product .card3::before{
+     content: "";
+  position: absolute;
+  inset: 0;
+  background: url("your-image.jpg") center/cover no-repeat;
+  transition: -webkit-clip-path 0.5s ease;
+  transition: clip-path 0.5s ease;
+  -webkit-clip-path: inset(0); /* normal rectangle */
+  clip-path: inset(0);
+}
+.product .card1:hover, .product .card2:hover, .product .card3:hover{
+     -webkit-clip-path: polygon(
+    10% 0%, 20% 5%, 30% 0%, 40% 5%, 50% 0%,
+    60% 5%, 70% 0%, 80% 5%, 90% 0%,
+    100% 10%, 95% 20%, 100% 30%, 95% 40%, 100% 50%,
+    95% 60%, 100% 70%, 95% 80%, 100% 90%,
+    90% 100%, 80% 95%, 70% 100%, 60% 95%, 50% 100%,
+    40% 95%, 30% 100%, 20% 95%, 10% 100%,
+    0% 90%, 5% 80%, 0% 70%, 5% 60%, 0% 50%,
+    5% 40%, 0% 30%, 5% 20%, 0% 10%
+  );
+  clip-path: polygon(
+    10% 0%, 20% 5%, 30% 0%, 40% 5%, 50% 0%,
+    60% 5%, 70% 0%, 80% 5%, 90% 0%,
+    100% 10%, 95% 20%, 100% 30%, 95% 40%, 100% 50%,
+    95% 60%, 100% 70%, 95% 80%, 100% 90%,
+    90% 100%, 80% 95%, 70% 100%, 60% 95%, 50% 100%,
+    40% 95%, 30% 100%, 20% 95%, 10% 100%,
+    0% 90%, 5% 80%, 0% 70%, 5% 60%, 0% 50%,
+    5% 40%, 0% 30%, 5% 20%, 0% 10%
+  );
+}
+.product .c1 section{
+    display: flex;
+    gap: 180px;
+    margin-top: 20px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.2rem;
+    padding: 10px;
+    font-weight: 500;
+}
+.text{
+    display: flex;
+    margin: 50px 250px;
+    gap: 50px;
+}
+.text p{
+    padding: 70px 50px;
+    width:570px;
+    font-family: "TASA Orbiter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+}
+.text img{
+    height: 400px;
+    padding-top: 70px;
+}
+.text video{
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 170px;
+    position: absolute;
+    left: 780px;
+    animation:rotate 4s linear infinite;
+
+}
+.image{
+    display: flex;
+}
+.image a{
+    text-decoration: none;
+}
+.image .img1{
+    width: 800px;
+    background-image: url(./images/images5.webp);
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.image .img1 button, .image .img2 button, .wall button{
+    width: 200px;
+    padding: 20px;
+    border-radius: 30px;
+    border: 2px solid yellow;
+    background-color: transparent;
+    align-content: center;
+    margin-bottom: 20px;
+    margin-left: 280px;
+     font-size: 2rem;
+    color: yellow;
+    font-family: "TASA Orbiter", sans-serif;
+}
+
+.image .img1 button:hover, .image .img2 button:hover, .wall button:hover{
+    background-color: yellow;
+    color: black;
+    border: 2px solid black;
+}
+.image .img1 h3, .image .img2 h3, .wall h3{
+    color: yellow;
+    font-family: "TASA Orbiter", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 2rem;
+}
+
+.image .img2{
+    width: 800px;
+    background-image: url(./images/img6.webp);
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.text2{
+    display: flex;
+    margin: 100px 250px;
+    gap: 50px;
+}
+.text2 p{
+    padding: 30px 50px;
+    width:570px;
+    font-family: "TASA Orbiter", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.5rem;
+}
+.text2 video{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-image: url(./images/img7.webp);
+    margin-left: 280px;
+    animation: rotate 5s linear infinite;
+}
+.text2 .video{
+    background-image: url(./images/img7.webp);
+    width: 450px;
+    height: 500px;
+    padding-top: 50px;
+}
+.ribbon{
+    height: 40px;
+    background-color: yellow;
+    color: black;
+    overflow: hidden;
+    display: flex;
+    padding: 5px;
+}
+.ribbon p{
+    font-size: 1.3rem;
+     font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+}
+
+.wall{
+    background-image: url(./images/img9.webp);
+    padding: 20px;
+    height: 800px;
+}
+.wall h3{
+    font-size: 3rem;
+}
+.wall h3, .wall button{
+    margin-left: 300px;
+    text-align: center;
+}
+.wall button{
+    margin-left: 850px;
+    margin-top: 200px;
+}
+.wall video{
+    padding-left: 1200px;
+    height: 150px;
+    border-radius: 50%;
+    width: 150px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+@media (max-width:1400px){
+    nav{
+        gap: 200px;
+    }
+}
+@media (max-width:1000px){
+    nav{
+        gap: 50px;
+    }
+    .logo{
+        font-size: 1.5rem;
+        padding-top: 30px;
+    }
+}
+
+@media (max-width:768px){
+    nav{
+        gap: 30px;
+    }
+    .logo{
+        font-size: 2rem;
+         padding-top: 30px;
+    }
+}
